@@ -8,16 +8,14 @@ Route::get('/contato', [\App\Http\Controllers\ContatoController::class, 'contato
 Route::get('/testes', [\App\Http\Controllers\TestesController::class, 'testes']);
 
 Route::get(
-    '/contato/{nome}/{categoria}/{assunto}/{mensagem?}',
+    '/contato/{nome}/{categoria_id}',
     function (
-        string $nome,
-        int $categoria,
-        string $assunto,
-        string $mensagem = 'mensagem nao enviada'
+        $nome = 'Desconhecido',
+        $categoria_id = 1
     ) {
         echo 'Estamos aqui, ' . $nome;
-        echo ' Categoria ' . $categoria;
-        echo ' Assunto: ' . $assunto;
-        echo ' Mensagem: ' . $mensagem;
+        echo ' Categoria ' . $categoria_id;
     }
-);
+)->where('categoria_id', '[0-9]+')->where('nome','[A-Za-z]+'); 
+// realizando tratamento para que o parametro obtido seja um numero valido [0-9] e que ele receba no minimo um numero '+'
+// realizando tratamento para que o parametro obtido seja uma string valida composta por letras [A-Za-z] e que ele receba no minimo uma letra '+'
