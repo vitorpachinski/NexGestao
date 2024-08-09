@@ -14,6 +14,10 @@ Route::prefix('/app')->group(function(){
 
 });
 
+Route::fallback(function(){
+    echo 'Página não encontrada, <a href="'.route('site.index').'">clique aqui para ir para a pagina incial </a>';
+});
+
 Route::get('/rota1',function(){
     return 'Rota 1';  
 })->name('site.rota1');
