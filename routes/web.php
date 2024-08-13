@@ -18,7 +18,7 @@ Route::fallback(function(){
     echo 'Página não encontrada, <a href="'.route('site.index').'">clique aqui para ir para a pagina incial </a>';
 });
 
-Route::get('/teste/{p1}/{p2}',[\App\Http\Controllers\TesteController::class, 'teste'])->name('teste');
+Route::get('/teste/{p1}/{p2}',[\App\Http\Controllers\TesteController::class, 'teste'])->name('site.teste');
 
  
 Route::get(
