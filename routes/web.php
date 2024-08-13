@@ -18,14 +18,8 @@ Route::fallback(function(){
     echo 'Página não encontrada, <a href="'.route('site.index').'">clique aqui para ir para a pagina incial </a>';
 });
 
-Route::get('/rota1',function(){
-    return 'Rota 1';  
-})->name('site.rota1');
-Route::get('/rota2',function(){
-    return redirect()->route('site.rota1');
-})->name('site.rota2');
+Route::get('/teste/{p1}/{p2}',[\App\Http\Controllers\TesteController::class, 'teste'])->name('teste');
 
-//Route::redirect('/rota2','/rota1');'
  
 Route::get(
     '/contato/{nome}/{categoria_id}',
