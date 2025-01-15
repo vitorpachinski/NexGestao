@@ -8,14 +8,17 @@ use Illuminate\Http\Request;
 
 class FornecedorController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
         $fornecedores = DB::select('select * from fornecedores');
         if (empty($fornecedores)) {
             $existe = 'Não existem fornecedores';
-        }else {
-            $existe = null;
         }
+        $existe = null;
+        
+        return view('app.fornecedor.index', compact('fornecedores','existe'));
+    }
+    public function store(Request $request){
         if ($request->has('nome')) {
             $nome = $request->input('nome');
             $phone = $request->input('phone');
@@ -24,6 +27,5 @@ class FornecedorController extends Controller
             session()->put('fornecedores', $fornecedores);
             return redirect()->route('app.fornecedores');
         }
-        return view('app.fornecedor.index', compact('fornecedores','existe'));
     }
 }

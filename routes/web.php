@@ -10,6 +10,7 @@ Route::prefix('/app')->group(function(){
     
     Route::get('/clientes', function(){return 'Clientes';})->name('app.clientes');
     Route::get('/fornecedores', [\App\Http\Controllers\FornecedorController::class, 'index'])->name('app.fornecedores');
+    Route::post('/fornecedores', [\App\Http\Controllers\FornecedorController::class, 'store'])->name('app.fornecedores.store');
     Route::get('/produtos', function(){return 'Produtos';})->name('app.produtos');
 
 });
