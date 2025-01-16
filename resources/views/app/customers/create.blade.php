@@ -29,20 +29,20 @@
         <input type="text" id="name" name="name" value="{{ old('name') }}" required>
         <br>
 
-        <label for="whatsapp_number_1">WhatsApp 1:</label>
-        <input type="text" id="whatsapp_number_1" name="whatsapp_number_1" value="{{ old('whatsapp_number_1') }}">
+        <label for="whatsapp_1">WhatsApp 1:</label>
+        <input type="text" id="whatsapp_1" name="whatsapp_1" value="{{ old('whatsapp_1') }}">
         <br>
 
-        <label for="whatsapp_number_2">WhatsApp 2:</label>
-        <input type="text" id="whatsapp_number_2" name="whatsapp_number_2" value="{{ old('whatsapp_number_2') }}">
+        <label for="whatsapp_2">WhatsApp 2:</label>
+        <input type="text" id="whatsapp_2" name="whatsapp_2" value="{{ old('whatsapp_2') }}">
         <br>
 
-        <label for="phone_number_1">Telefone 1:</label>
-        <input type="text" id="phone_number_1" name="phone_number_1" value="{{ old('phone_number_1') }}">
+        <label for="phone_1">Telefone 1:</label>
+        <input type="text" id="phone_1" name="phone_1" value="{{ old('phone_1') }}">
         <br>
 
-        <label for="phone_number_2">Telefone 2:</label>
-        <input type="text" id="phone_number_2" name="phone_number_2" value="{{ old('phone_number_2') }}">
+        <label for="phone_2">Telefone 2:</label>
+        <input type="text" id="phone_2" name="phone_2" value="{{ old('phone_2') }}">
         <br>
 
         <button type="submit">Cadastrar</button>

@@ -25,6 +25,6 @@ class RemoveDuplicatedNumbers extends Command
      */
     public function handle()
     {
-        //
+        
     }
 }
