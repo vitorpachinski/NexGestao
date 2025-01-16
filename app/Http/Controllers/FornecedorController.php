@@ -10,25 +10,11 @@ class FornecedorController extends Controller
 {
     public function index()
     {
-        // $fornecedores = DB::select('select * from fornecedores');
-        // if (empty($fornecedores)) {
-        //     $existe = 'Não existem fornecedores';
-        // }
-        // $existe = null;
-        
-        // return view('app.fornecedor.index', compact('fornecedores','existe'));
         $fornecedores = session()->get('fornecedores');
-        return view('app.fornecedor.index', compact('fornecedores'));
+        $message = isset($fornecedores) ? null : 'Nenhum fornecedor cadastrado';
+        return view('app.fornecedor.index', compact('fornecedores','message'));
     }
     public function store(Request $request){
-        // if ($request->has('nome')) {
-        //     $nome = $request->input('nome');
-        //     $phone = $request->input('phone');
-        //     DB::update('insert into fornecedores set name =?, phone =?', [$nome, $phone]);
-        //     $fornecedores =  DB::select('select * from fornecedores');
-        //     session()->put('fornecedores', $fornecedores);
-        //     return redirect()->route('app.fornecedores');
-        // }
         $fornecedores = session()->get('fornecedores', []);
         $fornecedores[] = $request->all();
         session()->put('fornecedores', $fornecedores);
