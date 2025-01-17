@@ -29,16 +29,13 @@ class RemoveDuplicatedNumbers extends Command
         $contacts = Contact::all();
 
         foreach ($contacts as $contact) {
+            $duplicates = Contact::where('number', $contact->number)
+            ->where('customer_id', $contact->customer_id)
+            ->where('code', $contact->code)
+            ->max('id');
 
-            $duplicates = Contact::where('number', $contact->number)->where('id', '=', $contact->id)->get();
-            if ($duplicates->count() > 0) {
-                foreach ($duplicates as $duplicate) {
-                    $maxIdContact = $duplicate->max('id');
-                    if($duplicate->id === $maxIdContact){
-                        $duplicate->delete();
-                    }
-                    // dd($duplicate);
-                }
+            if($contact->id != $duplicates){
+                $contact->delete();
             }
         }
     }
