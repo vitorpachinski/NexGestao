@@ -10,4 +10,8 @@ class ContatoController extends Controller
     public function contato(){
         return view('site.contato', ['title' => 'Super Gestão - Contato']);
     }
+
+    public function store(){
+        var_dump($_POST);
+    }
 }
