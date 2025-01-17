@@ -12,7 +12,8 @@ class FornecedorController extends Controller
     {
         $fornecedores = session()->get('fornecedores');
         $message = isset($fornecedores) ? null : 'Nenhum fornecedor cadastrado';
-        return view('app.fornecedor.index', compact('fornecedores','message'));
+        $title = 'Super Gestão - Fornecedores';
+        return view('app.fornecedor.index', compact('fornecedores','message', 'title'));
     }
     public function store(Request $request){
         $fornecedores = session()->get('fornecedores', []);

@@ -1,3 +1,7 @@
+@extends('site.partials.head')
+@section('title', $title)
+@section('content')
+@include('site.partials.header')
 <h1>Cadastrar Fornecedor</h1>
 <div>
     <form action="{{route('app.fornecedores.store')}}" method="POST">
@@ -51,3 +55,4 @@
 
 
 @endphp
+@endsection()
