@@ -19,6 +19,7 @@
         <h2>{{$message}}</h2>
         @isset($fornecedores)
         @foreach ($fornecedores as $i=>$fornecedor)
+        <li>Iteração atual {{$loop->iteration}}</li>
             <li>{{$i+1}}º FORNECEDOR</li>
             <li>NOME: {{$fornecedor['name']}}</li>
             <li>TELEFONE: {{$fornecedor['phone']}}</li>
