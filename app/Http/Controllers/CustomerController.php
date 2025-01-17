@@ -28,13 +28,14 @@ class CustomerController extends Controller
         $customer = Customer::create([
             'name' => $validated['name'],
         ]);
+        
 
         // Criar contatos associados ao cliente
         $contacts = [
-            ['contact_type' => 'whatsapp', 'number' => $validated['whatsapp_1']],
-            ['contact_type' => 'whatsapp', 'number' => $validated['whatsapp_2']],
-            ['contact_type' => 'phone', 'number' => $validated['phone_1']],
-            ['contact_type' => 'phone', 'number' => $validated['phone_2']],
+            ['code' => 'whatsapp', 'number' => $validated['whatsapp_1']],
+            ['code' => 'whatsapp', 'number' => $validated['whatsapp_2']],
+            ['code' => 'phone', 'number' => $validated['phone_1']],
+            ['code' => 'phone', 'number' => $validated['phone_2']],
         ];
 
         // Filtra contatos válidos (ignora campos vazios)
