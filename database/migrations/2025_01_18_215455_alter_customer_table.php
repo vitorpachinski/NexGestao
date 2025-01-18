@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('customers', function (Blueprint $table) {
             $table->string('country', 2);
-            $table->string('e-mail',150);
+            $table->string('e-mail', 150);
         });
     }
 
@@ -22,6 +22,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::table('customers', function (Blueprint $table) {
+            //$table->dropColumn('country');
+            // $table->dropColumn('e-mail');
+            $table->dropColumn(['country', 'e-mail']);
+        });
     }
 };
