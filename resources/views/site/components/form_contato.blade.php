@@ -5,13 +5,13 @@
     <br>
     <input type="text" placeholder="Telefone" name="phone" class="borda-preta">
     <br>
-    <input type="text" placeholder="E-mail" name="mail" class="borda-preta">
+    <input type="text" placeholder="E-mail" name="email" class="borda-preta">
     <br>
-    <select class="borda-preta">
+    <select class="borda-preta" name="reason">
         <option value="">Qual o motivo do contato?</option>
-        <option value="doubt">Dúvida</option>
-        <option value="praise">Elogio</option>
-        <option value="complaint">Reclamação</option>
+        <option value="1">Dúvida</option>
+        <option value="2">Elogio</option>
+        <option value="3">Reclamação</option>
     </select>
     <br>
     <textarea class="borda-preta" name="message">Preencha aqui a sua mensagem</textarea>
