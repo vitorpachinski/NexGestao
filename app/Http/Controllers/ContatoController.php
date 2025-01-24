@@ -23,11 +23,11 @@ class ContatoController extends Controller
        // SiteContact::save();
 
        $request->validate([
-        'name' => ['required', 'string', 'max:255'],
-        'email' => ['required', 'string', 'email:rfc', 'max:255', 'unique:site_contacts'],
-        'phone' => ['required', 'string', 'max:20'],
+        'name' => ['required', 'string', 'max:40', 'min:3'],
+        'email' => ['required', 'string', 'email:rfc', 'max:255', 'min:5', 'unique:site_contacts'],
+        'phone' => ['required', 'string', 'max:20','min:5'],
         'reason' => ['required', 'integer'],
-        'message' => ['required', 'string', 'max:500'],
+        'message' => ['string', 'max:500'],
        ]);
 
     }
