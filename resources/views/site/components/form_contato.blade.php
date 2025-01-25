@@ -9,9 +9,9 @@
     <br>
     <select class="borda-preta" name="reason" >
         <option value="">Qual o motivo do contato?</option>
-        <option value="1">Dúvida</option>
-        <option value="2">Elogio</option>
-        <option value="3">Reclamação</option>
+        <option value="1" {{old('reason') == 1 ? 'selected' : ''}}>Dúvida</option>
+        <option value="2" {{old('reason') == 2 ? 'selected' : ''}}>Elogio</option>
+        <option value="3" {{old('reason') == 3 ? 'selected' : ''}}>Reclamação</option>
     </select>
     <br>
     <textarea class="borda-preta" name="message"><?=old('message') != '' ? old('message') : 'Preencha aqui a sua mensagem'?></textarea>
