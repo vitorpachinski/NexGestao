@@ -5,17 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\SiteContact;
+use App\Models\ContactReason;
 
 class ContatoController extends Controller
 {
     public function contato(){
-        $contact_reasons = [
-            '1' => 'Dúvidas',
-            '2' => 'Sugestões',
-            '3' => 'Reclamações',
-            '4' => 'Elogios',
-            '5' => 'Outros'
-        ];
+        $contact_reasons = ContactReason::all();
         return view('site.contato', ['title' => 'Super Gestão - Contato', 'contact_reasons' => $contact_reasons]);
     }
 
