@@ -10,7 +10,7 @@
 
     <div class="informacao-pagina">
         <div class="contato-principal">
-            @component('site.components.form_contato')
+            @component('site.components.form_contato', ['contact_reasons' => $contact_reasons]);
             <p>A nossa equipe analisará a sua mensagem e retornaremos o mais brevemente possível</p>
             <p>Tempo medio de resposta: 48horas</p>
             @endcomponent

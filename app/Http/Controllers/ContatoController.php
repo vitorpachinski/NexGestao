@@ -9,7 +9,14 @@ use App\Models\SiteContact;
 class ContatoController extends Controller
 {
     public function contato(){
-        return view('site.contato', ['title' => 'Super Gestão - Contato']);
+        $contact_reasons = [
+            '1' => 'Dúvidas',
+            '2' => 'Sugestões',
+            '3' => 'Reclamações',
+            '4' => 'Elogios',
+            '5' => 'Outros'
+        ];
+        return view('site.contato', ['title' => 'Super Gestão - Contato', 'contact_reasons' => $contact_reasons]);
     }
 
     public function store(Request $request){

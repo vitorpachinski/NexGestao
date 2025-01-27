@@ -9,9 +9,12 @@
     <br>
     <select class="borda-preta" name="reason" >
         <option value="">Qual o motivo do contato?</option>
-        <option value="1" {{old('reason') == 1 ? 'selected' : ''}}>Dúvida</option>
+        @foreach ($contact_reasons as $key=>$contact_reason)
+            <option value="{{$key}}" {{old('reason') == $key ? 'selected' : ''}}>{{$contact_reason}}</option>
+        @endforeach
+        <!--<option value="1" {{old('reason') == 1 ? 'selected' : ''}}>Dúvida</option>
         <option value="2" {{old('reason') == 2 ? 'selected' : ''}}>Elogio</option>
-        <option value="3" {{old('reason') == 3 ? 'selected' : ''}}>Reclamação</option>
+        <option value="3" {{old('reason') == 3 ? 'selected' : ''}}>Reclamação</option>-->
     </select>
     <br>
     <textarea class="borda-preta" name="message"><?=old('message') != '' ? old('message') : 'Preencha aqui a sua mensagem'?></textarea>
@@ -19,7 +22,5 @@
     <button type="submit" class="borda-preta">ENVIAR</button>
 </form>
 <div style="position:absolute; top:0px; left: 0px; width: 100%;background:red;">
-    <pre>
-    {{ print_r($errors) }} 
-</pre>
+    
 </div>
