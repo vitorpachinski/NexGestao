@@ -26,11 +26,14 @@ class ContatoController extends Controller
 
        $request->validate([
         'name' => ['required', 'string', 'max:40', 'min:3'],
-        'email' => ['required', 'string', 'email:rfc', 'max:255', 'min:5', 'unique:site_contacts'],
+        'email' => ['required', 'string', 'email:rfc', 'max:255', 'min:5'],
         'phone' => ['required', 'string', 'max:20','min:5'],
-        'reason' => ['required', 'integer'],
+        'contact_reasons_id' => ['required', 'integer'],
         'message' => ['string', 'max:500'],
        ]);
+
+       SiteContact::create($request->all());
+       return redirect()->route('site.index')->with('success', 'Sua solicitação de contato foi enviada com sucesso!');
 
     }
 }

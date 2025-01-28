@@ -12,6 +12,7 @@ class SiteContact extends Model
         'name',
         'phone',
         'email',
+        'contact_reasons_id',
         'message'
     ];
 }
