@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Middleware\AcessLogMiddleware;
+use App\Http\Middleware\AccessLogMiddleware;
 
-Route::middleware(AcessLogMiddleware::class)->get('/', [\App\Http\Controllers\PrincipalController::class, 'principal'])->name('site.index');
+Route::middleware(AccessLogMiddleware::class)->get('/', [\App\Http\Controllers\PrincipalController::class, 'principal'])->name('site.index');
 Route::get('/sobre-nos', [\App\Http\Controllers\SobreNosController::class, 'sobrenos'])->name('site.sobrenos');
 Route::get('/contato', [\App\Http\Controllers\ContatoController::class, 'contato'])->name('site.contato');
 Route::post('/contato', [\App\Http\Controllers\ContatoController::class, 'store'])->name('site.contato.store');
