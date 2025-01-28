@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\ContactReason;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\SiteContact>
@@ -20,7 +21,7 @@ class SiteContactFactory extends Factory
             'name' => $this->faker->name(),
             'phone' => $this->faker->tollFreePhoneNumber(),
             'email' => $this->faker->unique()->safeEmail(),
-            'reason' => $this->faker->numberBetween(1, 3),
+            'contact_reasons_id' => $this->faker->randomElement(ContactReason::pluck('id')->toArray()),
             'message' => $this->faker->text(200),
         ];
     }
