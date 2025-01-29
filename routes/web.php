@@ -8,12 +8,12 @@ Route::get('/contato', [\App\Http\Controllers\ContatoController::class, 'contato
 Route::post('/contato', [\App\Http\Controllers\ContatoController::class, 'store'])->name('site.contato.store');
 
 Route::get('/login', function(){return 'Login';})->name('site.login');
-Route::prefix('/app')->group(function(){
+Route::middleware('authentication:default,visitor')->prefix('/app')->group(function(){
     // Route::get('/customer',[\App\Http\Controllers\CustomerController::class, 'create'])->name('app.customers.create');
     // Route::post('/customer', [\App\Http\Controllers\CustomerController::class, 'store'])->name('app.customers.store');
-    Route::middleware('authentication:default,visitor')->get('/clientes', function(){return 'Clientes';})->name('app.clientes');
-    Route::middleware('authentication:LDAP,admin')->get('/fornecedores', [\App\Http\Controllers\FornecedorController::class, 'index'])->name('app.fornecedores');
-    Route::middleware('authentication')->get('/produtos', function(){return 'Produtos';})->name('app.produtos');
+    Route::get('/clientes', function(){return 'Clientes';})->name('app.clientes');
+    Route::get('/fornecedores', [\App\Http\Controllers\FornecedorController::class, 'index'])->name('app.fornecedores');
+    Route::get('/produtos', function(){return 'Produtos';})->name('app.produtos');
 });
 
 Route::fallback(function(){
