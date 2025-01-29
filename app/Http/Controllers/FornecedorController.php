@@ -15,10 +15,10 @@ class FornecedorController extends Controller
         $title = 'Super Gestão - Fornecedores';
         return view('app.fornecedor.index', compact('fornecedores','message', 'title'));
     }
-    public function store(Request $request){
-        $fornecedores = session()->get('fornecedores', []);
-        $fornecedores[] = $request->all();
-        session()->put('fornecedores', $fornecedores);
-        return redirect()->route('app.fornecedores');
-    }
+    // public function store(Request $request){
+    //     $fornecedores = session()->get('fornecedores', []);
+    //     $fornecedores[] = $request->all();
+    //     session()->put('fornecedores', $fornecedores);
+    //     return redirect()->route('app.fornecedores');
+    // }
 }

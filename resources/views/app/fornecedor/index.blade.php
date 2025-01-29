@@ -4,7 +4,7 @@
 @include('site.partials.header')
 <h1>Cadastrar Fornecedor</h1>
 <div>
-    <form action="{{route('app.fornecedores.store')}}" method="POST">
+    <form action="" method="POST">
         @csrf
         <input type="text" name="name" placeholder="Nome do fornecedor" required>
         <input type="number" name="phone" placeholder="Telefone do fornecedor" required>
