@@ -13,8 +13,8 @@
         <div style="width: 30%; margin-left: auto; margin-right: auto;">
             <form action="{{route('site.login.store')}}" method="POST">
                 @csrf
-                <input type="text" placeholder="Usuário" name="user" class="borda-preta">
-                <input type="password" placeholder="Senha" name="password" class="borda-preta">
+                <input type="text" placeholder="E-mail" name="email" value='{{old('email')}}' class="borda-preta">
+                <input type="password" placeholder="Senha" name="password" value='{{old(key: 'password')}}' class="borda-preta">
                 <button type="submit">Fazer Login</button>
             </form>
         </div>
