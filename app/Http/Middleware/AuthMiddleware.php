@@ -5,9 +5,8 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-use App\Models\AccessLog;
 
-class AccessLogMiddleware
+class AuthMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,12 +15,11 @@ class AccessLogMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $ip = $request->server->get('REMOTE_ADDR');
-        $route = $request->getRequestUri();
-        AccessLog::create(['log' => "O IP: $ip requisitou a rota: $route"]);
-        return $next($request);
+        if(true){
+            return $next($request);
+        }
         
-        // 
-        // return Response('Middleware Response');
+        // Retorna uma resposta com status 403 e a mensagem 'Acesso negado!' caso não seja autenticado
+        return Response('Acesso negado!, rota necessita de autenticação');
     }
 }
