@@ -2,17 +2,17 @@
 <form action="{{route('site.contato.store')}}" method="POST">
     @csrf
     <input type="text" placeholder="Nome" name="name" value="{{old('name')}}" class="borda-preta">
-    @if($errors->has('name'))
+    @if($errors && $errors->has('name'))
         <span class="error-message">{{$errors->first('name')}}</span>
     @endif
     <br>
     <input type="text" placeholder="Telefone" name="phone" value="{{old('phone')}}" class="borda-preta">
-    @if($errors->has('phone'))
+    @if($errors && $errors->has('phone'))
         <span class="error-message">{{$errors->first('phone')}}</span>
     @endif
     <br>
     <input type="text" placeholder="E-mail" name="email" value="{{old('email')}}" class="borda-preta">
-    @if($errors->has('email'))
+    @if($errors && $errors->has('email'))
         <span class="error-message">{{$errors->first('email')}}</span>
     @endif
     <br>
@@ -27,7 +27,7 @@
         <option value="2" {{old('reason') == 2 ? 'selected' : ''}}>Elogio</option>
         <option value="3" {{old('reason') == 3 ? 'selected' : ''}}>Reclamação</option>-->
     </select>
-    @if($errors->has('contact_reasons_id'))
+    @if($errors && $errors->has('contact_reasons_id'))
         <span class="error-message">{{$errors->first('contact_reasons_id')}}</span>
     @endif
     <br>

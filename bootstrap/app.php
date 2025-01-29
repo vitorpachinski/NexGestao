@@ -12,10 +12,11 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->group('web',[
-            AccessLogMiddleware::class,
-            // Outros middlewares aqui...
+        $middleware->web(append: [
+            'throttle:100,1',
         ]);
+        $middleware->alias(['accessLog' => AccessLogMiddleware::class]);
+
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
