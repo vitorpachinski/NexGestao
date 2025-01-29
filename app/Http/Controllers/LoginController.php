@@ -13,6 +13,9 @@ class LoginController extends Controller
             if($request->get('errorLog') == 1){
                 $errorLog = 'Email ou senha inválidos';
             }
+            if($request->get('errorLog') == 2){
+                $errorLog = 'Você precisa estar autenticado para acessar essa pagina';
+            }
         return view('site.login', ['title' => 'Login', 'errorLog' => $errorLog]);
     }
 
@@ -33,15 +36,17 @@ class LoginController extends Controller
 
         $email = $request->get('email');
         $password = $request->get('password');
-        // echo "Usuario $email senha $password";
 
 
         $user = User::where('email', $email)->where('password', $password)->first();
-        // dd ($user);
 
         if(!isset($user->email)){
-            echo 'Usuario não existe';
             return redirect()->route('site.login',['errorLog' => 1]);
         }
+        
+        session_start();
+        $_SESSION['userId'] = $user->id;
+        $_SESSION['email'] = $user->email;
+        return redirect()->route('app.clientes');
     }
 }
