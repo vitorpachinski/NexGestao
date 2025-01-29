@@ -14,7 +14,9 @@
             <form action="{{route('site.login.store')}}" method="POST">
                 @csrf
                 <input type="text" placeholder="E-mail" name="email" value='{{old('email')}}' class="borda-preta">
+                {{$errors->has('email') ? $errors->first('email') : ''}}
                 <input type="password" placeholder="Senha" name="password" value='{{old(key: 'password')}}' class="borda-preta">
+                {{$errors->has('password') ? $errors->first('password') : ''}}
                 <button type="submit">Fazer Login</button>
             </form>
         </div>
