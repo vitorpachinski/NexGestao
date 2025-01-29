@@ -13,7 +13,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        return view('app.clientes');
+        return view('app.clientes',['title' => 'Area administrativa - Clientes']);
     }
 
     /**

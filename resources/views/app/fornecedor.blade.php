@@ -1,7 +1,8 @@
-@extends('site.partials.head')
+@extends('app.partials.head')
 @section('title', $title)
 @section('content')
-@include('site.partials.header')
+@include('app.partials.header')
+
 <h1>Cadastrar Fornecedor</h1>
 <div>
     <form action="" method="POST">
@@ -51,8 +52,4 @@
         @endisset
     </ul>
 </div>
-@php
-
-
-@endphp
-@endsection()
+@endsection

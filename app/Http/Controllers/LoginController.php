@@ -47,11 +47,10 @@ class LoginController extends Controller
         session_start();
         $_SESSION['userId'] = $user->id;
         $_SESSION['email'] = $user->email;
-        return redirect()->route('app.clientes');
+        return redirect()->route('app.home');
     }
 
     public function logout(){
-        session_start();
         session_destroy();
         return redirect()->route('site.login');
     }
