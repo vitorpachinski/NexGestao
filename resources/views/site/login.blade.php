@@ -19,6 +19,7 @@
                 {{$errors->has('password') ? $errors->first('password') : ''}}
                 <button type="submit">Fazer Login</button>
             </form>
+            {{$errorLog}}
         </div>
     </div>
 </div>

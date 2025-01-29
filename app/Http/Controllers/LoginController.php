@@ -4,11 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class LoginController extends Controller
 {
-    public function index(){
-        return view('site.login', ['title' => 'Login']);
+    public function index(Request $request){
+        $errorLog = '';
+            if($request->get('errorLog') == 1){
+                $errorLog = 'Email ou senha inválidos';
+            }
+        return view('site.login', ['title' => 'Login', 'errorLog' => $errorLog]);
     }
 
     public function store(Request $request){
@@ -26,6 +31,17 @@ class LoginController extends Controller
 
         $request->validate($rules,$feedbacks);
 
-        dd($request->all());
+        $email = $request->get('email');
+        $password = $request->get('password');
+        // echo "Usuario $email senha $password";
+
+
+        $user = User::where('email', $email)->where('password', $password)->first();
+        // dd ($user);
+
+        if(!isset($user->email)){
+            echo 'Usuario não existe';
+            return redirect()->route('site.login',['errorLog' => 1]);
+        }
     }
 }

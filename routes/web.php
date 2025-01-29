@@ -7,7 +7,7 @@ Route::get('/sobre-nos', [\App\Http\Controllers\SobreNosController::class, 'sobr
 Route::get('/contato', [\App\Http\Controllers\ContatoController::class, 'contato'])->name('site.contato');
 Route::post('/contato', [\App\Http\Controllers\ContatoController::class, 'store'])->name('site.contato.store');
 
-Route::get('/login', [\App\Http\Controllers\LoginController::class, 'index'])->name('site.login');
+Route::get('/login/{error?}', [\App\Http\Controllers\LoginController::class, 'index'])->name('site.login');
 Route::post('/login', [\App\Http\Controllers\LoginController::class, 'store'])->name('site.login.store');
 Route::middleware('authentication:default,visitor')->prefix('/app')->group(function(){
     // Route::get('/customer',[\App\Http\Controllers\CustomerController::class, 'create'])->name('app.customers.create');
