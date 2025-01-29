@@ -11,9 +11,9 @@ class CustomerController extends Controller
     /**
      * Exibe o formulário de cadastro de cliente.
      */
-    public function create()
+    public function index()
     {
-        return view('app.customers.create');
+        return view('app.clientes');
     }
 
     /**

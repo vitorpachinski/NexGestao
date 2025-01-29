@@ -49,4 +49,10 @@ class LoginController extends Controller
         $_SESSION['email'] = $user->email;
         return redirect()->route('app.clientes');
     }
+
+    public function logout(){
+        session_start();
+        session_destroy();
+        return redirect()->route('site.login');
+    }
 }
