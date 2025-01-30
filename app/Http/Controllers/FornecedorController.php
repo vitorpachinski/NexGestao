@@ -13,7 +13,7 @@ class FornecedorController extends Controller
         $fornecedores = session()->get('fornecedores');
         $message = isset($fornecedores) ? null : 'Nenhum fornecedor cadastrado';
         $title = 'Area administrativa - Fornecedores';
-        return view('app.fornecedor', compact('fornecedores','message', 'title'));
+        return view('app.suppliers.index', compact('fornecedores','message', 'title'));
     }
     // public function store(Request $request){
     //     $fornecedores = session()->get('fornecedores', []);
