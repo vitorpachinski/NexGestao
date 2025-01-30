@@ -16,6 +16,8 @@ Route::middleware('authentication')->prefix('/app')->group(function(){
     Route::get('/logout', [\App\Http\Controllers\LoginController::class, 'logout'])->name('app.logout');
     Route::get('/clientes', [\App\Http\Controllers\CustomerController::class, 'index'])->name('app.clientes');
     Route::get('/fornecedores', [\App\Http\Controllers\FornecedorController::class, 'index'])->name('app.fornecedores');
+    Route::get('/fornecedores/novo', [\App\Http\Controllers\FornecedorController::class, 'new'])->name('app.fornecedores.new');
+    Route::post('/fornecedores/listar', [\App\Http\Controllers\FornecedorController::class, 'list'])->name('app.fornecedores.list');
     Route::get('/produtos', [\App\Http\Controllers\ProductController::class, 'index'])->name('app.produtos');
 });
 

@@ -21,4 +21,10 @@ class FornecedorController extends Controller
     //     session()->put('fornecedores', $fornecedores);
     //     return redirect()->route('app.fornecedores');
     // }
+    public function list(){
+        return view('app.suppliers.list', ['title' => 'Lista de fornecedores']);
+    }
+    public function new(){
+        return view('app.suppliers.add', ['title' => 'Cadastrar fornecedor']);
+    }
 }

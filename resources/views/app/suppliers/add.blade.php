@@ -5,22 +5,21 @@
 
 <div class="conteudo-pagina">
     <div class="titulo-pagina-fornecedor">
-        <p>Fornecedores</p>
+        <p>Adicionar fornecedor</p>
     </div>
     <div class="menu">
         <ul>
             <li>
-                <a href="{{route('app.fornecedores.new')}}">Novo</a>
+                <a href="">Novo</a>
             </li>
             <li>
-                <a href="{{route('app.fornecedores')}}">Consulta</a>
+                <a href="">Consulta</a>
             </li>
         </ul>
     </div>
     <div class="informacao-pagina">
         <div style="width:30%; margin-left: auto; margin-right: auto;">
-            <form action="{{route('app.fornecedores.list')}}" method="POST">
-                @csrf
+            <form action="" method="POST">
                 <input type="text" name="name" class="borda-preta" placeholder="Nome">
                 <input type="text" name="site" class="borda-preta" placeholder="Site">
                 <input type="text" name="country" class="borda-preta" placeholder="Pais de origem">
