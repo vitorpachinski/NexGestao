@@ -22,9 +22,14 @@ class FornecedorController extends Controller
     //     session()->put('fornecedores', $fornecedores);
     //     return redirect()->route('app.fornecedores');
     // }
-    public function list()
-    {
-        return view('app.suppliers.list', ['title' => 'Lista de fornecedores']);
+    public function list(Request $request)
+    {   
+        $suppliers = Supplier::where('name', 'like', '%'.$request->input('name').'%')
+        ->where('country', 'like', '%'.$request->input('country').'%')
+        ->where('email', 'like', '%'.$request->input('email').'%')
+        ->get();
+
+        return view('app.suppliers.list', ['title' => 'Lista de fornecedores', 'suppliers' => $suppliers]);
     }
     public function new()
     {
