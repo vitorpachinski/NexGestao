@@ -7,19 +7,9 @@
     <div class="titulo-pagina-fornecedor">
         <p>Adicionar fornecedor</p>
     </div>
-    <div class="menu">
-        <ul>
-            <li>
-                <a href="">Novo</a>
-            </li>
-            <li>
-                <a href="">Consulta</a>
-            </li>
-        </ul>
-    </div>
     
     <div class="informacao-pagina">
-        {{$message}}
+        {{isset($message) ? $message : ''}}
         <div style="width:30%; margin-left: auto; margin-right: auto;">
             <form action="{{route("app.fornecedores.add")}}" method="POST">
                 @csrf
