@@ -27,9 +27,9 @@ class FornecedorController extends Controller
         $suppliers = Supplier::where('name', 'like', '%'.$request->input('name').'%')
         ->where('country', 'like', '%'.$request->input('country').'%')
         ->where('email', 'like', '%'.$request->input('email').'%')
-        ->get();
+        ->paginate(3);
 
-        return view('app.suppliers.list', ['title' => 'Lista de fornecedores', 'suppliers' => $suppliers]);
+        return view('app.suppliers.list', ['title' => 'Lista de fornecedores', 'suppliers' => $suppliers, 'request' => $request->all()]);
     }
     public function new()
     {
