@@ -81,4 +81,13 @@ class FornecedorController extends Controller
         }
         return view('app.suppliers.add', ['supplier' => $supplier, 'message' => $message]);
     }
+
+    public function remove($id){
+        $supplier = Supplier::find($id);
+        if($supplier){
+            $supplier->delete();
+            return redirect()->route('app.fornecedores');
+        }
+        return redirect()->route('app.fornecedores');
+    }
 }

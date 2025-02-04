@@ -28,7 +28,7 @@
                             <td>{{isset($supplier->site) ? $supplier->site : 'Site do fornecedor não informado'}}</td>
                             <td>{{$supplier->country}}</td>
                             <td>{{$supplier->email}}</td>
-                            <td>EXCLUIR</td>
+                            <td><a href="{{route('app.fornecedores.remove', $supplier->id)}}">EXCLUIR</a></td>
                             <td><a href="{{route('app.fornecedores.edit', $supplier->id)}}">EDITAR</a></td>
                         </tr>
                     @endforeach
@@ -36,6 +36,7 @@
                 </tbody>
             </table>
                 {{$suppliers->appends($request)->links()}}
+                {{$suppliers->total()}} Registros encontrados
         </div>
     </div>
 </div>
