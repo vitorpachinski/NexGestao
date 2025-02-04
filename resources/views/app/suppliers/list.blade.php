@@ -1,5 +1,5 @@
 @extends('app.partials.head')
-@section('title', $title)
+@section('title', $title ?? '')
 @section('content')
 @include('app.partials.header')
 
@@ -29,7 +29,7 @@
                             <td>{{$supplier->country}}</td>
                             <td>{{$supplier->email}}</td>
                             <td>EXCLUIR</td>
-                            <td>EDITAR</td>
+                            <td><a href="{{route('app.fornecedores.edit', $supplier->id)}}">EDITAR</a></td>
                         </tr>
                     @endforeach
 

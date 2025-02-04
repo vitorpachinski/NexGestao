@@ -37,7 +37,7 @@ class FornecedorController extends Controller
     }
     public function add(Request $request)
     {
-        if ($request->input('_token') != '') {
+        if ($request->input('_token') != '' && $request->input('id') == '') {
             $rules = [
                 'name' => 'required | max:50 | min:3',
                 'site' => 'max:255',
@@ -59,6 +59,26 @@ class FornecedorController extends Controller
             $fornecedor->create($request->all());
             $message = "Cadastro realizado com sucesso";
         }
+
+        //to update
+        if ($request->input('_token') != '' && $request->input('id') != ''){
+            $supplier = Supplier::find($request->input('id'));
+            $update = $supplier->update($request->all());
+            if(!$update){
+                $message = "Ocorreu um erro ao atualizar";
+                return redirect()->route('app.fornecedores.edit', ['message' => $message]);
+            }
+            $message = "Atualização realizada com sucesso";
+            return redirect()->route('app.fornecedores.edit', ['id' => $request->input('id'), 'message' => $message]);
+
+        }
         return view('app.suppliers.add', ['title'=>'Cadastrar fornecedor','message' => $message]);
+    }
+    public function edit($id, $message = ''){
+        $supplier = Supplier::find($id);
+        if(!$supplier){
+            return redirect()->route('app.fornecedores');
+        }
+        return view('app.suppliers.add', ['supplier' => $supplier, 'message' => $message]);
     }
 }
