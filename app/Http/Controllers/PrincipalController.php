@@ -10,7 +10,7 @@ class PrincipalController extends Controller
 {
     public function principal(){
         $contactReasons = ContactReason::all();
-        return view('site.principal', ['title' => 'Super Gestão - Home', 'contactReasons' => $contactReasons]);
+        return view('site.principal', ['title' => 'NexGestao - Home', 'contactReasons' => $contactReasons]);
     }
 }
 

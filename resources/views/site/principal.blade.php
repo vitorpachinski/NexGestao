@@ -8,7 +8,7 @@
 
     <div class="esquerda">
         <div class="informacoes">
-            <h1>Sistema Super Gestão</h1>
+            <h1>Sistema NexGestao</h1>
             <p>Software para gestão empresarial ideal para sua empresa.
             <p>
             <div class="chamada">

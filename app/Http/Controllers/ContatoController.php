@@ -11,7 +11,7 @@ class ContatoController extends Controller
 {
     public function contato(){
         $contactReasons = ContactReason::all();
-        return view('site.contato', ['title' => 'Super Gestão - Contato', 'contactReasons' => $contactReasons]);
+        return view('site.contato', ['title' => 'NexGestao - Contato', 'contactReasons' => $contactReasons]);
     }
 
     public function store(Request $request){

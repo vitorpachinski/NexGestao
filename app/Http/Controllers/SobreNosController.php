@@ -12,6 +12,6 @@ class SobreNosController extends Controller
         $this->middleware(AccessLogMiddleware::class);
     }*/
     public function sobrenos(){
-        return view('site.sobre-nos', ['title' => 'Super Gestão - Sobre Nós']);
+        return view('site.sobre-nos', ['title' => 'NexGestao - Sobre Nós']);
     }
 }
