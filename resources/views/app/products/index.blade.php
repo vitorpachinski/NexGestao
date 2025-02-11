@@ -35,7 +35,7 @@
 
                 </tbody>
             </table>
-                {{$products->appends($request)->links()}}
+                {{-- {{$products->appends($request)->links()}} --}}
                 {{$products->total()}} Registros encontrados
         </div>
     </div>
