@@ -1,12 +1,20 @@
 @extends('app.partials.head')
 @section('title', $title ?? '')
 @section('content')
-@include('app.partials.header')
+@include('app.partials.products.header')
 
 <div class="conteudo-pagina">
     <div class="titulo-pagina-fornecedor">
         <p>Listar</p>
     </div>
+    <ul>
+        <li>
+            <a href="{{route('products.create')}}">Novo</a>
+        </li>
+        <li>
+            {{-- <a href="{{route('app.fornecedores')}}">Consulta</a> --}}
+        </li>
+    </ul>
     <div class="informacao-pagina">
         <div style="width:90%; margin-left: auto; margin-right: auto;">
             <table border="1" style="width:100%">
@@ -28,8 +36,8 @@
                             <td>{{isset($product->site) ? $product->site : 'Site do fornecedor não informado'}}</td>
                             <td>{{$product->country}}</td>
                             <td>{{$product->email}}</td>
-                            <td><a href="{{route('app.products.remove', $product->id)}}">EXCLUIR</a></td>
-                            <td><a href="{{route('app.products.edit', $product->id)}}">EDITAR</a></td>
+                            <td><a href="{{route('', $product->id)}}">EXCLUIR</a></td>
+                            <td><a href="{{route('', $product->id)}}">EDITAR</a></td>
                         </tr>
                     @endforeach
 

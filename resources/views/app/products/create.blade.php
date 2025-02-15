@@ -10,7 +10,7 @@
     <div class="menu">
         <ul>
             <li>
-                <a href="{{route('app.products.create')}}">Novo</a>
+                <a href="{{route('products.create')}}">Novo</a>
             </li>
             <li>
                 {{-- <a href="{{route('app.fornecedores')}}">Consulta</a> --}}
@@ -21,24 +21,23 @@
     <div class="informacao-pagina">
         {{$message ?? ''}}
         <div style="width:30%; margin-left: auto; margin-right: auto;">
-            <form action="{{route("app.product.create")}}" method="POST">
+            <form action="{{route("products.store")}}" method="POST">
                 {{-- <input type="hidden" name="id" value="{{$supplier->id ?? ''}}"> --}}
                 @csrf
                 <input type="text" name="name" class="borda-preta" placeholder="Nome" value="{{old('name')}}">
-                {{$errors->has('name') ? $errors->first() : '' }}
+                {{$errors->has('name') ? $errors->first('name') : '' }}
                 <input type="text" name="description" class="borda-preta" placeholder="Site"
                     value="{{old('description')}}">
-                {{$errors->has('description') ? $errors->first() : '' }}
+                {{$errors->has('description') ? $errors->first('description') : '' }}
                 <input type="text" name="weight" class="borda-preta" placeholder="Pais de origem"
                     value="{{old('weight')}}">
-                {{$errors->has('weight') ? $errors->first() : '' }}
+                {{$errors->has('weight') ? $errors->first('weight') : '' }}
                 <select name="unit">
-                    @foreach ($unitys as $unity)
-                        <option value="{{$unity->id}}">{{$unity->description}}</option>
+                    @foreach ($units as $unit)
+                        <option value="{{$unit->id}}" {{old('unit') == $unit->id ? "selected" : ''}}>{{$unit->description}}</option>
                     @endforeach
-
                 </select>
-                {{$errors->has('email') ? $errors->first() : '' }}
+                {{$errors->has('unit') ? $errors->first('unit') : '' }}
                 <button type="submit" class="borda-preta">Pesquisar</button>
             </form>
         </div>

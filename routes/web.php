@@ -21,9 +21,9 @@ Route::middleware('authentication')->prefix('/app')->group(function(){
     Route::get('/fornecedores/listar', [\App\Http\Controllers\SupplierController::class, 'list'])->name('app.fornecedores.paginate');
     Route::get('/fornecedores/editar/{id}/{message?}', [\App\Http\Controllers\SupplierController::class, 'edit'])->name('app.fornecedores.edit');
     Route::get('/fornecedores/excluir/{id}', [\App\Http\Controllers\SupplierController::class, 'remove'])->name('app.fornecedores.remove');
-    Route::get('/produtos', [\App\Http\Controllers\ProductController::class, 'index'])->name('app.products');
+    // Route::get('/produtos', [ProductController::class, 'index'])->name('app.products');
 
     //products
-    Route::resource('product', ProductController::class);
+    Route::resource('products', ProductController::class);
     
 });

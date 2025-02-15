@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Unity;
+use App\Models\Unit;
 
 class ProductController extends Controller
 {
@@ -15,8 +15,8 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::paginate(10);
-        $unitys = Unity::all();
-        return view('app.products.index', ['title' => 'NexGestao - Produtos', 'products' => $products, 'unitys' => $unitys]);
+       
+        return view('app.products.index', ['title' => 'NexGestao - Produtos', 'products' => $products]);
     }
 
     /**
@@ -24,7 +24,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('app.products.create');
+        $units = Unit::all();
+        return view('app.products.create',[ 'units' => $units]);
     }
 
     /**
