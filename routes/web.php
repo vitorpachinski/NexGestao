@@ -10,8 +10,6 @@ Route::post('/contato', [\App\Http\Controllers\ContactController::class, 'store'
 Route::get('/login/{error?}', [\App\Http\Controllers\LoginController::class, 'index'])->name('site.login');
 Route::post('/login', [\App\Http\Controllers\LoginController::class, 'store'])->name('site.login.store');
 Route::middleware('authentication')->prefix('/app')->group(function(){
-    // Route::get('/customer',[\App\Http\Controllers\CustomerController::class, 'create'])->name('app.customers.create');
-    // Route::post('/customer', [\App\Http\Controllers\CustomerController::class, 'store'])->name('app.customers.store');
     Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('app.home');
     Route::get('/logout', [\App\Http\Controllers\LoginController::class, 'logout'])->name('app.logout');
     Route::get('/clientes', [\App\Http\Controllers\CustomerController::class, 'index'])->name('app.clientes');
@@ -28,23 +26,3 @@ Route::middleware('authentication')->prefix('/app')->group(function(){
     Route::resource('produto', 'Product Controller');
     
 });
-
-Route::fallback(function(){
-    echo 'Página não encontrada, <a href="'.route('site.index').'">clique aqui para ir para a pagina incial </a>';
-});
-
-Route::get('/teste/{p1}/{p2}',[\App\Http\Controllers\TesteController::class, 'teste'])->name('site.teste');
-
- 
-Route::get(
-    '/contato/{nome}/{categoria_id}',
-    function (
-        $nome = 'Desconhecido',
-        $categoria_id = 1
-    ) {
-        echo 'Estamos aqui, ' . $nome;
-        echo ' Categoria ' . $categoria_id;
-    }
-)->where('categoria_id', '[0-9]+')->where('nome','[A-Za-z]+'); 
-// realizando tratamento para que o parametro obtido seja um numero valido [0-9] e que ele receba no minimo um numero '+'
-// realizando tratamento para que o parametro obtido seja uma string valida composta por letras [A-Za-z] e que ele receba no minimo uma letra '+'
