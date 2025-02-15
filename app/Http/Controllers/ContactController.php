@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\SiteContact;
 use App\Models\ContactReason;
 
-class ContatoController extends Controller
+class ContactController extends Controller
 {
-    public function contato(){
+    public function contact(){
         $contactReasons = ContactReason::all();
         return view('site.contato', ['title' => 'NexGestao - Contato', 'contactReasons' => $contactReasons]);
     }

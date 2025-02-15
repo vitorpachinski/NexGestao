@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Supplier;
 
-class FornecedorController extends Controller
+class SupplierController extends Controller
 {
     public function index()
     {

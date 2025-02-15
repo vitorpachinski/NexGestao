@@ -6,9 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ContactReason;
 
-class PrincipalController extends Controller
+class PublicHomeController extends Controller
 {
-    public function principal(){
+    public function index(){
         $contactReasons = ContactReason::all();
         return view('site.principal', ['title' => 'NexGestao - Home', 'contactReasons' => $contactReasons]);
     }
