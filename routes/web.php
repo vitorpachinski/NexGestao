@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
 Route::get('/', [\App\Http\Controllers\PublicHomeController::class, 'index'])->name('site.index');
 Route::get('/sobre-nos', [\App\Http\Controllers\AboutController::class, 'about'])->name('site.sobrenos');
@@ -23,6 +24,6 @@ Route::middleware('authentication')->prefix('/app')->group(function(){
     Route::get('/produtos', [\App\Http\Controllers\ProductController::class, 'index'])->name('app.products');
 
     //products
-    Route::resource('produto', 'Product Controller');
+    Route::resource('product', ProductController::class);
     
 });
