@@ -15,8 +15,8 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::paginate(10);
-       
-        return view('app.products.index', ['title' => 'NexGestao - Produtos', 'products' => $products]);
+        $units = Unit::all();
+        return view('app.products.index', ['title' => 'NexGestao - Produtos', 'products' => $products, 'units' => $units]);
     }
 
     /**
@@ -33,22 +33,24 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $product = new Product();
+        
         $rules = [
             'name' => 'required|min:3|max:100',
             'description' => 'required|max:255',
-            'wieght' => 'required|numeric',
-            'unity_id' => 'required|numeric'
+            'weight' => 'required|numeric',
+            'unit_id' => 'exists:units,id'
         ];
         $feedback = [
             'required' => 'O campo :attribute e obrigatorio !',
             'min' => 'O campo :attribute deve ter pelo menos :min caracteres!',
             'max' => 'O campo :attribute deve ter no maximo :max caracteres!',
-            'numeric' => 'O campo :attribute deve ser um numero!'
+            'numeric' => 'O campo :attribute deve ser um numero!',
+            'unit_id.exists' => 'A unidade de medida escolhida não existe!'
         ];
         $request->validate($rules, $feedback);
-        $product::create($request->all());
-        return redirect()->route('app.products.index');
+        Product::create($request->all());
+
+        return redirect()->route('products.index');
     }
 
     /**
@@ -56,7 +58,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return view('app.products.show',['product' => $product]);
     }
 
     /**
@@ -64,7 +66,8 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        $products = Product::where('id', $product);
+        return redirect()->route('products.update', $products);
     }
 
     /**

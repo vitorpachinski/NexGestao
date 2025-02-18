@@ -24,6 +24,7 @@
                         <th>Descricao</th>
                         <th>Peso</th>
                         <th>Unidade ID</th>
+                        <th>VISUALIZAR</th>
                         <th>EXCLUIR</th>
                         <th>EDITAR</th>
                     </tr>
@@ -34,10 +35,11 @@
                         <tr>
                             <td>{{$product->name}}</td>
                             <td>{{isset($product->site) ? $product->site : 'Site do fornecedor não informado'}}</td>
-                            <td>{{$product->country}}</td>
-                            <td>{{$product->email}}</td>
-                            <td><a href="{{route('', $product->id)}}">EXCLUIR</a></td>
-                            <td><a href="{{route('', $product->id)}}">EDITAR</a></td>
+                            <td>{{$product->weight}}</td>
+                            <td>{{$product->unit_id}}</td>
+                            <td><a href="{{route('products.show',['product' => $product->id])}}">VISUALIZAR</a></td>
+                            {{-- <td><a href="{{route('', $product->id)}}">EXCLUIR</a></td> --}}
+                            {{-- <td><a href="{{route('products.update',[ $product->id, $units])}}">EDITAR</a></td> --}}
                         </tr>
                     @endforeach
 

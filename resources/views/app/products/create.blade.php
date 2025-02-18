@@ -26,19 +26,19 @@
                 @csrf
                 <input type="text" name="name" class="borda-preta" placeholder="Nome" value="{{old('name')}}">
                 {{$errors->has('name') ? $errors->first('name') : '' }}
-                <input type="text" name="description" class="borda-preta" placeholder="Site"
+                <input type="text" name="description" class="borda-preta" placeholder="Descrição"
                     value="{{old('description')}}">
                 {{$errors->has('description') ? $errors->first('description') : '' }}
-                <input type="text" name="weight" class="borda-preta" placeholder="Pais de origem"
+                <input type="number" name="weight" class="borda-preta" placeholder="Peso"
                     value="{{old('weight')}}">
                 {{$errors->has('weight') ? $errors->first('weight') : '' }}
-                <select name="unit">
+                <select name="unit_id">
                     @foreach ($units as $unit)
-                        <option value="{{$unit->id}}" {{old('unit') == $unit->id ? "selected" : ''}}>{{$unit->description}}</option>
+                        <option value="{{$unit->id}}" {{old('unit_id') == $unit->id ? "selected" : ''}}>{{$unit->description}}</option>
                     @endforeach
                 </select>
-                {{$errors->has('unit') ? $errors->first('unit') : '' }}
-                <button type="submit" class="borda-preta">Pesquisar</button>
+                {{$errors->has('unit_id') ? $errors->first('unit_id') : '' }}
+                <button type="submit" class="borda-preta">Criar Produto</button>
             </form>
         </div>
     </div>
