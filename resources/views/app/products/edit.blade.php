@@ -21,7 +21,8 @@
     <div class="informacao-pagina">
         {{$message ?? ''}}
         <div style="width:30%; margin-left: auto; margin-right: auto;">
-            <form action="{{route("products.store")}}" method="POST">
+            <form action="{{route("products.update",['product' => $product->id])}}" method="">
+                @method("PUT")
                 {{-- <input type="hidden" name="id" value="{{$supplier->id ?? ''}}"> --}}
                 @csrf
                 <input type="text" name="name" class="borda-preta" placeholder="Nome" value="{{$product->name}}">
@@ -34,11 +35,11 @@
                 {{$errors->has('weight') ? $errors->first('weight') : '' }}
                 <select name="unit_id">
                     @foreach ($units as $unit)
-                        <option value="{{$unit}}" {{$product->unit_id == $unit->id ? "selected" : ''}}>{{$unit->description}}</option>
+                        <option value="{{$unit->id}}" {{$product->unit_id == $unit->id ? "selected" : ''}}>{{$unit->description}}</option>
                     @endforeach
                 </select>
                 {{$errors->has('unit_id') ? $errors->first('unit_id') : '' }}
-                <button type="submit" class="borda-preta">Criar Produto</button>
+                <button type="submit" class="borda-preta">Editar Produto</button>
             </form>
         </div>
     </div>
