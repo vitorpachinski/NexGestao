@@ -66,8 +66,8 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        $products = Product::where('id', $product);
-        return redirect()->route('products.update', $products);
+        $units = Unit::all();
+        return view('app.products.edit',['product' => $product, 'units' => $units]);
     }
 
     /**

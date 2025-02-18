@@ -37,7 +37,7 @@
                             <td>{{$product->weight}}</td>
                             <td>{{$product->unit_id}}</td>
                             {{-- <td><a href="{{route('', $product->id)}}">EXCLUIR</a></td> --}}
-                            {{-- <td><a href="{{route('products.update',[ $product->id, $units])}}">EDITAR</a></td> --}}
+                            <td><a href="{{route('products.edit',[ 'product' => $product->id])}}">EDITAR</a></td>
                         </tr>
                 </tbody>
             </table>
