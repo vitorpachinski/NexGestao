@@ -36,7 +36,12 @@
                             <td>{{isset($product->site) ? $product->site : 'Site do fornecedor não informado'}}</td>
                             <td>{{$product->weight}}</td>
                             <td>{{$product->unit_id}}</td>
-                            {{-- <td><a href="{{route('', $product->id)}}">EXCLUIR</a></td> --}}
+                            <form action="{{route('products.destroy', ['product' => $product->id])}}" method="POST">
+                                @method('DELETE')
+                                @csrf
+                                <button type="submit">EXCLUIR</button>
+                                {{-- <td><a href="">EXCLUIR</a></td> --}}
+                            </form>
                             <td><a href="{{route('products.edit',[ 'product' => $product->id])}}">EDITAR</a></td>
                         </tr>
                 </tbody>
