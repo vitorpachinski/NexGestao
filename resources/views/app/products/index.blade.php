@@ -39,13 +39,12 @@
                                 <td>{{$product->unit_id}}</td>
                                 <td><a href="{{route('products.show', ['product' => $product->id])}}">VISUALIZAR</a></td>
                                 <td>
-                                    <form action="{{route('products.destroy', ['product' => $product->id])}}" method="POST">
+                                    <form action="{{route('products.destroy', ['product' => $product->id])}}" method="POST"
+                                        id="form">
                                         @method('DELETE')
                                         @csrf
-                                        <button type="submit">EXCLUIR</button>
-                                        {{--
-                                <td><a href="">EXCLUIR</a></td> --}}
-                                </form>
+                                        <a href="#" onclick="sendForm()">EXCLUIR</a>
+                                    </form>
                                 </td>
                                 <td><a href="{{route('products.edit', ['product' => $product->id])}}">EDITAR</a></td>
                             </tr>
@@ -59,3 +58,9 @@
         </div>
     </div>
 @endsection
+
+<script>
+    function sendForm() {
+        document.getElementById('form').submit();
+    }
+</script>
