@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductDetailController;
 
 Route::get('/', [\App\Http\Controllers\PublicHomeController::class, 'index'])->name('site.index');
 Route::get('/sobre-nos', [\App\Http\Controllers\AboutController::class, 'about'])->name('site.sobrenos');
@@ -25,5 +26,6 @@ Route::middleware('authentication')->prefix('/app')->group(function(){
 
     //products
     Route::resource('products', ProductController::class);
+    Route::resource('productDetails', ProductDetailController::class);
     
 });
