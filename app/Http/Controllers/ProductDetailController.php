@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\ProductDetail;
+use App\Models\Unit;
 
 class ProductDetailController extends Controller
 {
@@ -12,7 +14,7 @@ class ProductDetailController extends Controller
      */
     public function index()
     {
-        //
+        return view(view: 'app.product_detail.index');
     }
 
     /**
@@ -20,7 +22,8 @@ class ProductDetailController extends Controller
      */
     public function create()
     {
-        //
+        $units = Unit::all();
+        return view('app.product_detail.create', ['units' => $units]);
     }
 
     /**
@@ -28,7 +31,8 @@ class ProductDetailController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        ProductDetail::create($request->all());
+        return redirect()->route('productDetails.index');
     }
 
     /**

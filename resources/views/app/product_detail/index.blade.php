@@ -9,7 +9,7 @@
         </div>
         <ul>
             <li>
-                <a href="{{route('products.create')}}">Novo</a>
+                <a href="{{route('productDetails.create')}}">Novo</a>
             </li>
             <li>
                 {{-- <a href="{{route('app.fornecedores')}}">Consulta</a> --}}
@@ -31,7 +31,7 @@
                     </thead>
                     <tbody>
 
-                        @foreach ($products as $product)
+                        {{-- @foreach ($products as $product)
                             <tr>
                                 <td>{{$product->name}}</td>
                                 <td>{{isset($product->site) ? $product->site : 'Site do fornecedor não informado'}}</td>
@@ -48,12 +48,10 @@
                                 </td>
                                 <td><a href="{{route('products.edit', ['product' => $product->id])}}">EDITAR</a></td>
                             </tr>
-                        @endforeach
+                        @endforeach --}}
 
                     </tbody>
                 </table>
-                {{-- {{$products->appends($request)->links()}} --}}
-                {{$products->total()}} Registros encontrados
             </div>
         </div>
     </div>

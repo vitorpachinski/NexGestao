@@ -10,7 +10,7 @@
     <div class="menu">
         <ul>
             <li>
-                <a href="{{route('products.create')}}">Novo</a>
+                <a href="{{route('productDetails.create')}}">Novo</a>
             </li>
             <li>
                 {{-- <a href="{{route('app.fornecedores')}}">Consulta</a> --}}
@@ -21,7 +21,7 @@
     <div class="informacao-pagina">
         {{$message ?? ''}}
         <div style="width:30%; margin-left: auto; margin-right: auto;">
-            @component('app.products._components.form', ['units' => $units])
+            @component('app.product_detail._components.form', ['units' => $units])
                 
             @endcomponent
         </div>
